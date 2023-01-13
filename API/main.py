@@ -1,23 +1,25 @@
 import json
 import random
-import utilities
 from fastapi import FastAPI
 
-app = FastAPI()
 
+app = FastAPI()
+numeroDomanda = 0
 with open("File/Domande.txt", "r") as f:
 
     # Lettura delle domande dal file json
     dati = json.load(f)
 
-numeroDomanda = -1
 
+
+# METODI PER IL GIOCO
+##########################################################################################
 # Metodo che restituisce una domanda casuale e le relative risposte
 @app.get('/getDomanda')
 async def getDomanda():
    
     # Estrazione di una domanda casuale dal file
-    numeroDomanda = utilities.generaNumeroCasuale(-1, len(dati["domande"])-1)
+    numeroDomanda = random.randint(0, len(dati["domande"])-1)
 
     # Estrazione dei dati dal file json
     domandaEstratta = dati["domande"][numeroDomanda]
@@ -55,10 +57,15 @@ async def verificaRisposta(numeroDomanda: int, numeroRisposta: int):
         "corretta": "no"
     }
 
+##########################################################################################
 
+
+
+# METODI AGGIORNAMENTO CLASSIFICA
+##########################################################################################
 # Metodo che inserisce il punteggio del giocatore con il relativo
-# username all'interrno della classifica
-@app.get('/aggiornaPunteggio')
+# username all'interno della classifica
+@app.get('/aggiornaClassifica')
 async def aggiornaPunteggio(username: str, punteggio: int):
     
     giocatore = {
@@ -95,5 +102,20 @@ async def aggiornaPunteggio(username: str, punteggio: int):
         p.write(json.dumps(punteggi))
 
     return {
-        punteggi
+        "punteggi": "bra"
     }
+
+
+# Metodo per reimpostare la classifica
+@app.get('/reimpostaClassifica')
+async def reimpostaClassifica():
+
+    # Viene aggiornato il file contenente la classifica
+    with open("File/PunteggiGiocatori.txt", "w") as c:
+        c.write('{"classifica": []}')
+
+    return {
+        "aggiornamentoClassifica": "successo"
+    }
+
+##########################################################################################
