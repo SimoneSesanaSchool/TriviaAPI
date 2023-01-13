@@ -1,0 +1,40 @@
+{
+    "domande": [
+        {
+            "domanda": "Quale di questi non e' un tipo di frutta?",
+            "risposte": [
+                {"risposta": "mela", "corretta": true},
+                {"risposta": "carota", "corretta": false},
+                {"risposta": "insalata", "corretta": false},
+                {"risposta": "patata", "corretta": false}
+            ]
+        },
+        {
+            "domanda": "Quale di questi non e' un colore primario?",
+            "risposte": [
+                {"risposta": "giallo", "corretta": true},
+                {"risposta": "blu", "corretta": true},
+                {"risposta": "rosso", "corretta": false},
+                {"risposta": "verde", "corretta": false}
+            ]
+        },
+        {
+            "domanda": "Quale di questi non e' un animale domestico?",
+            "risposte": [
+                {"risposta": "cane", "corretta": false},
+                {"risposta": "gatto", "corretta": false},
+                {"risposta": "uccello", "corretta": false},
+                {"risposta": "coccodrillo", "corretta": true}
+            ]
+        },
+        {
+            "domanda": "Quale di questi e' un sigma?",
+            "risposte": [
+                {"risposta": "gigachad", "corretta": true},
+                {"risposta": "beta", "corretta": false},
+                {"risposta": "casari", "corretta": false},
+                {"risposta": "inve", "corretta": false}
+            ]
+        }
+    ]
+}
