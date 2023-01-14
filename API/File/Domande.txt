@@ -3,10 +3,10 @@
         {
             "domanda": "Quale di questi non e' un tipo di frutta?",
             "risposte": [
-                {"risposta": "mela", "corretta": true},
+                {"risposta": "mela", "corretta": false},
                 {"risposta": "carota", "corretta": false},
-                {"risposta": "insalata", "corretta": false},
-                {"risposta": "patata", "corretta": false}
+                {"risposta": "insalata", "corretta": true},
+                {"risposta": "banana", "corretta": false}
             ]
         },
         {
