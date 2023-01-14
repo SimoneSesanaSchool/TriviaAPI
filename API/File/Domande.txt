@@ -35,6 +35,33 @@
                 {"risposta": "casari", "corretta": false},
                 {"risposta": "inve", "corretta": false}
             ]
+        },
+        {
+            "domanda": "Quale di queste case produttrici produce moto?",
+            "risposte": [
+                {"risposta": "Ferrari", "corretta": false},
+                {"risposta": "Lamborghini", "corretta": false},
+                {"risposta": "Ducati", "corretta": true},
+                {"risposta": "Bugatti", "corretta": false}
+            ]
+        },
+        {
+            "domanda": "Qual è il più grande oceano del mondo?",
+            "risposte": [
+                {"risposta1": "Oceano Pacifico", "corretta": true},
+                {"risposta2": "Oceano Atlantico", "corretta": false},
+                {"risposta3": "Oceano Indiano", "corretta": false},
+                {"risposta4": "Oceano Antartico", "corretta": false}
+            ]
+        },
+        {
+            "domanda": "Qual è la capitale della Francia?",
+            "risposte": [
+                {"risposta1": "Parigi", "corretta": true},
+                {"risposta2": "Marsiglia", "corretta": false},
+                {"risposta3": "Lione", "corretta": false},
+                {"risposta4": "Nizza", "corretta": false}
+            ]
         }
     ]
 }
