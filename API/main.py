@@ -82,6 +82,12 @@ async def aggiornaPunteggio(username: str, punteggio: int):
 
         classifica = punteggi["classifica"]
 
+        # Se il giocatore è gia presente nella classifica viene eliminato
+        # in modo che poi possa essere reinserito correttamente
+        for giocatore in classifica:
+            if giocatore["username"] == datiGiocatore["username"]:
+                classifica.remove(giocatore)    
+
         # Il giocatore viene aggiunto alla classifica
         posizione = 0
         for giocatore in classifica:
