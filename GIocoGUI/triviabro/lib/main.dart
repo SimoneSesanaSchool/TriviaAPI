@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:triviabro/Pages/Classifica/Classifica.dart';
+import 'package:triviabro/Pages/Gioca/Gioca.dart';
 
 import 'Pages/Menu/Menu.dart';
 
@@ -26,6 +28,8 @@ class _MyAppState extends State<MyApp> {
 
         routes: {
           '/menu': (context) => Menu(),
+          '/gioca': (context) => Gioca(),
+          '/classifica': (context) => Classifica()
         });
   }
 }

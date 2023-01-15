@@ -24,11 +24,15 @@ class _MenuState extends State<Menu> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
-            bottoneMenu("GIOCA", context, ''),
+            /// MENU
+            bottoneMenu("GIOCA", context, '/gioca'),
+
             SizedBox(
               height: 20,
             ),
-            bottoneMenu("CLASSIFICA", context, '')
+
+            /// CLASSIFICA
+            bottoneMenu("CLASSIFICA", context, '/classifica')
 
           ],
         ),
