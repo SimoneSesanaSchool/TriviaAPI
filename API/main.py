@@ -46,6 +46,8 @@ async def getDomanda():
 @app.get('/verificaRisposta')
 async def verificaRisposta(numeroDomanda: int, numeroRisposta: int):
 
+    numeroRisposta = numeroRisposta - 1
+
     i = 0
     while i < 4:
         if(dati["domande"][numeroDomanda]["risposte"][i]["corretta"] == True):
@@ -61,14 +63,14 @@ async def verificaRisposta(numeroDomanda: int, numeroRisposta: int):
 
 
 
-# METODI AGGIORNAMENTO CLASSIFICA
+# METODI CLASSIFICA
 ##########################################################################################
 # Metodo che inserisce il punteggio del giocatore con il relativo
 # username all'interno della classifica
 @app.get('/aggiornaClassifica')
 async def aggiornaPunteggio(username: str, punteggio: int):
     
-    giocatore = {
+    datiGiocatore = {
         "username": username,
         "punteggio": punteggio
     }
@@ -83,15 +85,15 @@ async def aggiornaPunteggio(username: str, punteggio: int):
         # Il giocatore viene aggiunto alla classifica
         posizione = 0
         for giocatore in classifica:
-            if giocatore["punteggio"] < giocatore["punteggio"]:
-                classifica.insert(posizione, giocatore)
+            if giocatore["punteggio"] < datiGiocatore["punteggio"]:
+                classifica.insert(posizione, datiGiocatore)
                 break
 
             posizione = posizione + 1
 
         # Se il giocatore non è stato ancora aggiunto viene aggiunto alla fine
         if posizione == len(classifica):
-            classifica.append(giocatore)
+            classifica.append(datiGiocatore)
 
         f.close()
 
@@ -102,7 +104,7 @@ async def aggiornaPunteggio(username: str, punteggio: int):
         p.write(json.dumps(punteggi))
 
     return {
-        "punteggi": "bra"
+        "classifica": classifica
     }
 
 
@@ -115,7 +117,21 @@ async def reimpostaClassifica():
         c.write('{"classifica": []}')
 
     return {
-        "aggiornamentoClassifica": "successo"
+        "classifica": []
     }
+
+
+# Metodo che ritorna la classifica
+@app.get('/getClassifica')
+async def getClassifica():
+
+    with open("File/PunteggiGiocatori.txt", "r") as p:
+
+        # Lettura dei punteggi
+        punteggi = json.load(p)
+
+        return {
+            "classifica": punteggi["classifica"]
+        }
 
 ##########################################################################################

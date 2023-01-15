@@ -46,21 +46,21 @@
             ]
         },
         {
-            "domanda": "Qual è il più grande oceano del mondo?",
+            "domanda": "Qual e' il piu' grande oceano del mondo?",
             "risposte": [
-                {"risposta1": "Oceano Pacifico", "corretta": true},
-                {"risposta2": "Oceano Atlantico", "corretta": false},
-                {"risposta3": "Oceano Indiano", "corretta": false},
-                {"risposta4": "Oceano Antartico", "corretta": false}
+                {"risposta": "Oceano Pacifico", "corretta": true},
+                {"risposta": "Oceano Atlantico", "corretta": false},
+                {"risposta": "Oceano Indiano", "corretta": false},
+                {"risposta": "Oceano Antartico", "corretta": false}
             ]
         },
         {
-            "domanda": "Qual è la capitale della Francia?",
+            "domanda": "Qual e' la capitale della Francia?",
             "risposte": [
-                {"risposta1": "Parigi", "corretta": true},
-                {"risposta2": "Marsiglia", "corretta": false},
-                {"risposta3": "Lione", "corretta": false},
-                {"risposta4": "Nizza", "corretta": false}
+                {"risposta": "Parigi", "corretta": true},
+                {"risposta": "Marsiglia", "corretta": false},
+                {"risposta": "Lione", "corretta": false},
+                {"risposta": "Nizza", "corretta": false}
             ]
         }
     ]
