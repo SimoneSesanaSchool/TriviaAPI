@@ -43,12 +43,12 @@ class _GiocaState extends State<Gioca> {
       domandeGiaUscite = domandeGiaUscite + ", $indiceDomanda";
     });
 
-    print(domandeGiaUscite);
 
   }
 
   /// Funzione per inviare la risposta e verificarne la correttezza
   void inviaRisposta(int indiceRisposta) async {
+
 
     Api api = Api('http://localhost:8000/verificaRisposta?numeroDomanda=$indiceDomanda&numeroRisposta=$indiceRisposta');
     var data = await api.getData();
@@ -122,8 +122,8 @@ class _GiocaState extends State<Gioca> {
               child: TextButton(
                 onPressed: () {
                   setState(() {
-                    domandeGiaUscite = "-1";
                     getDomanda();
+                    domandeGiaUscite = "-1";
                     haiPerso = false;
                     punteggio = 0;
                   });

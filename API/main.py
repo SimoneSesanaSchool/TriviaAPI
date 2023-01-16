@@ -20,7 +20,6 @@ async def getDomanda(domandeGiaUscite: str):
     
     array = domandeGiaUscite.split(",")
     domandeEstratte = list(map(int, array))
-    print(domandeEstratte)
 
     # Estrazione di una domanda casuale dal file
     numeroDomanda = random.randint(0, len(dati["domande"])-1)
