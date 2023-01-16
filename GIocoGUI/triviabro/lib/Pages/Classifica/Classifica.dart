@@ -49,15 +49,22 @@ class _ClassificaState extends State<Classifica> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      backgroundColor: Colors.green[200],
+      backgroundColor: Colors.blue[900],
 
       /// AppBar usata come padding
       appBar: AppBar(
         backgroundColor: Colors.white.withOpacity(0),
-        leading: Container(),
+        leading: IconButton(
+          icon: Icon(
+              Icons.arrow_back_ios
+          ),
+          onPressed: (){
+            Navigator.pop(context);
+          },
+        ),
         elevation: 0,
       ),
-      
+
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -123,29 +130,6 @@ class _ClassificaState extends State<Classifica> {
                 ),
               )
             ),
-
-            /// Bottone per tornare al menu
-            Expanded(
-              child: Align(
-                alignment: Alignment.bottomLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    left: 10,
-                    bottom: 10
-                  ),
-                  child: TextButton(
-                    onPressed: (){
-                      Navigator.pop(context);
-                    },
-                    child: const Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                  ),
-                )
-              ),
-            )
 
           ],
         ),

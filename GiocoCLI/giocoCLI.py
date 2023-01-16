@@ -16,11 +16,11 @@ def avviaPartita():
     # Stampa domande finche l'utente non inserisce una risposta errata
     while True:
         
-        response = requests.get("http://127.0.0.1:8000/getDomanda")
+        response = requests.get("http://127.0.0.1:8000/getDomanda?domandeGiaUscite=-1")
    
         domandaEstratta = datiGiocatore["ultimaDomandaEstratta"]
         while domandaEstratta == response.json()["numeroDomanda"]:
-            response = requests.get("http://127.0.0.1:8000/getDomanda")
+            response = requests.get("http://127.0.0.1:8000/getDomanda?domandeGiaUscite=-1")
 
 
         datiGiocatore["ultimaDomandaEstratta"] = response.json()["numeroDomanda"]

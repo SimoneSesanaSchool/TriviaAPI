@@ -16,10 +16,19 @@ with open("File/Domande.txt", "r") as f:
 ##########################################################################################
 # Metodo che restituisce una domanda casuale e le relative risposte
 @app.get('/getDomanda')
-async def getDomanda():
-   
+async def getDomanda(domandeGiaUscite: str):
+    
+    array = domandeGiaUscite.split(",")
+    domandeEstratte = list(map(int, array))
+    print(domandeEstratte)
+
     # Estrazione di una domanda casuale dal file
     numeroDomanda = random.randint(0, len(dati["domande"])-1)
+    
+    # Si controlla che la domanda non sia già uscita
+    while numeroDomanda in domandeEstratte:
+        numeroDomanda = random.randint(0, len(dati["domande"])-1)
+
 
     # Estrazione dei dati dal file json
     domandaEstratta = dati["domande"][numeroDomanda]
