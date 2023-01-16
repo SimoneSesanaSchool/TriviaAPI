@@ -17,6 +17,9 @@ class _GiocaState extends State<Gioca> {
 
   bool haiPerso = false;
 
+  /// Domande gia uscite
+  String domandeGiaUscite = "-1";
+
   /// Domanda e risposte
   String domanda = "domanda";
   String risposta1 = "risposta1";
@@ -27,7 +30,7 @@ class _GiocaState extends State<Gioca> {
   /// Funzione per generare una domanda
   void getDomanda() async {
 
-    Api api = Api('http://localhost:8000/getDomanda');
+    Api api = Api('http://localhost:8000/getDomanda?domandeGiaUscite=$domandeGiaUscite');
     var data = await api.getData();
 
     setState(() {
@@ -37,7 +40,10 @@ class _GiocaState extends State<Gioca> {
       risposta3 = data["risposta3"];
       risposta4 = data["risposta4"];
       indiceDomanda = data["numeroDomanda"];
+      domandeGiaUscite = domandeGiaUscite + ", $indiceDomanda";
     });
+
+    print(domandeGiaUscite);
 
   }
 
@@ -115,7 +121,12 @@ class _GiocaState extends State<Gioca> {
               ),
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/gioca');
+                  setState(() {
+                    domandeGiaUscite = "-1";
+                    getDomanda();
+                    haiPerso = false;
+                    punteggio = 0;
+                  });
                 },
                 style: TextButton.styleFrom(
                     shape: RoundedRectangleBorder(

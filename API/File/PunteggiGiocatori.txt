@@ -1,1 +1,1 @@
-{"classifica": [{"username": "fafa", "punteggio": 7}, {"username": "ff", "punteggio": 4}, {"username": "0", "punteggio": 1}]}
+{"classifica": [{"username": "ff", "punteggio": 4}, {"username": "fafa", "punteggio": 4}, {"username": "f", "punteggio": 2}, {"username": "0", "punteggio": 1}, {"username": "sigma tate", "punteggio": 1}, {"username": "-1", "punteggio": 0}]}
