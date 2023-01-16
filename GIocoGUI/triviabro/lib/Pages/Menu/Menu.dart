@@ -17,7 +17,7 @@ class _MenuState extends State<Menu> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      backgroundColor: Colors.green[200],
+      backgroundColor: Colors.blue[900],
 
       body: Center(
         child: Column(
