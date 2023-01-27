@@ -32,7 +32,7 @@ class _ClassificaState extends State<Classifica> {
   void getClassifica() async {
 
     /// Richiesta alla api
-    Api api = Api('http://localhost:8000/getClassifica');
+    Api api = Api('http://localhost:30333/getClassifica');
     var data = await api.getData();
 
     /// Vengono aggiornati i punteggi
@@ -87,8 +87,8 @@ class _ClassificaState extends State<Classifica> {
               padding: EdgeInsets.only(
                 top: 10,
                 bottom: 10,
-                right: MediaQuery.of(context).size.width / 3.2,
-                left: MediaQuery.of(context).size.width / 3.2,
+                right: MediaQuery.of(context).size.width / 3.3,
+                left: MediaQuery.of(context).size.width / 3.3,
               ),
               child: const Divider(
                 thickness: 3,
@@ -102,7 +102,7 @@ class _ClassificaState extends State<Classifica> {
                 bottom: 20
               ),
               child: SizedBox(
-                width: MediaQuery.of(context).size.width / 3,
+                width: MediaQuery.of(context).size.width / 2.8,
                 child: elementoClassifica("Username", "Punteggio", ""),
               ),
             ),
@@ -121,7 +121,7 @@ class _ClassificaState extends State<Classifica> {
                             bottom: 10
                           ),
                           child: SizedBox(
-                            width: MediaQuery.of(context).size.width / 3,
+                            width: MediaQuery.of(context).size.width / 2.8,
                             child: elementoClassifica(username[index], punteggi[index].toString(), index.toString())
                           )
                         )

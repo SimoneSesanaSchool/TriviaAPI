@@ -30,7 +30,7 @@ class _GiocaState extends State<Gioca> {
   /// Funzione per generare una domanda
   void getDomanda() async {
 
-    Api api = Api('http://localhost:8000/getDomanda?domandeGiaUscite=$domandeGiaUscite');
+    Api api = Api('http://localhost:30333/getDomanda?domandeGiaUscite=$domandeGiaUscite');
     var data = await api.getData();
 
     setState(() {
@@ -43,14 +43,13 @@ class _GiocaState extends State<Gioca> {
       domandeGiaUscite = domandeGiaUscite + ", $indiceDomanda";
     });
 
-
   }
 
   /// Funzione per inviare la risposta e verificarne la correttezza
   void inviaRisposta(int indiceRisposta) async {
 
 
-    Api api = Api('http://localhost:8000/verificaRisposta?numeroDomanda=$indiceDomanda&numeroRisposta=$indiceRisposta');
+    Api api = Api('http://localhost:30333/verificaRisposta?numeroDomanda=$indiceDomanda&numeroRisposta=$indiceRisposta');
     var data = await api.getData();
 
     if(data["corretta"] == "si") {
@@ -61,7 +60,7 @@ class _GiocaState extends State<Gioca> {
     } else {
 
       /// Aggiornamento classifica
-      Api api = Api('http://localhost:8000/aggiornaClassifica?username=$username&punteggio=$punteggio');
+      Api api = Api('http://localhost:30333/aggiornaClassifica?username=$username&punteggio=$punteggio');
       var data = await api.getData();
 
       setState(() {
