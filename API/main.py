@@ -1,6 +1,5 @@
 import json
 import random
-import uvicorn
 from fastapi import FastAPI
 
 
@@ -92,10 +91,20 @@ async def aggiornaPunteggio(username: str, punteggio: int):
         classifica = punteggi["classifica"]
 
         # Se il giocatore è gia presente nella classifica viene eliminato
-        # in modo che poi possa essere reinserito correttamente
+        # in modo che poi possa essere reinserito correttamente. Il giocatore
+        # viene eliminato dalla classifica solo se il nuovo punteggio è superiore
+        # a quello vecchio, in modo da tenere traccia per ogni giocatore
+        # solo del punteggio migliore
         for giocatore in classifica:
-            if giocatore["username"] == datiGiocatore["username"]:
-                classifica.remove(giocatore)    
+            if giocatore["username"] == datiGiocatore["username"] and datiGiocatore["punteggio"] > int(giocatore["punteggio"]):
+                classifica.remove(giocatore)  
+                break
+            
+            elif giocatore["username"] == datiGiocatore["username"] and datiGiocatore["punteggio"] <= int(giocatore["punteggio"]):
+                print("punteggio minore")
+                return {
+                    "classifica": classifica
+                }  
 
         # Il giocatore viene aggiunto alla classifica
         posizione = 0
