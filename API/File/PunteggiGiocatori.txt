@@ -1,1 +1,1 @@
-{"classifica": [{"username": "sesbraa", "punteggio": 2}]}
+{"classifica": [{"username": "Giocatore 1", "punteggio": 10}, {"username": "Giocatore 2", "punteggio": 7}, {"username": "Giocatore 3", "punteggio": 2}, {"username": "simone", "punteggio": 1}]}
