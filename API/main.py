@@ -3,6 +3,9 @@ import random
 from fastapi import FastAPI
 
 
+# Comando per far partire la API:
+# python -m uvicorn main:app --port 30333
+
 app = FastAPI()
 numeroDomanda = 0
 with open("File/Domande.txt", "r") as f:
